@@ -4,12 +4,13 @@
 #
 Name     : perl-Crypt-SSLeay
 Version  : 0.72
-Release  : 11
+Release  : 12
 URL      : http://www.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Source0  : http://www.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Summary  : 'OpenSSL support for LWP'
 Group    : Development/Tools
 License  : Artistic-2.0
+Requires: perl-Crypt-SSLeay-lib
 Requires: perl-Crypt-SSLeay-doc
 BuildRequires : openssl-dev
 BuildRequires : perl(LWP::Protocol::https)
@@ -30,6 +31,14 @@ Group: Documentation
 doc components for the perl-Crypt-SSLeay package.
 
 
+%package lib
+Summary: lib components for the perl-Crypt-SSLeay package.
+Group: Libraries
+
+%description lib
+lib components for the perl-Crypt-SSLeay package.
+
+
 %prep
 %setup -q -n Crypt-SSLeay-0.72
 
@@ -45,7 +54,7 @@ fi
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
+export no_proxy=localhost
 make TEST_VERBOSE=1 test
 
 %install
@@ -62,16 +71,19 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Crypt/SSLeay.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Crypt/SSLeay/CTX.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Crypt/SSLeay/Conn.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Crypt/SSLeay/Err.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Crypt/SSLeay/MainContext.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Crypt/SSLeay/Version.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Crypt/SSLeay/X509.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/Net/SSL.pm
-/usr/lib/perl5/site_perl/5.22.0/x86_64-linux/auto/Crypt/SSLeay/SSLeay.so
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/CTX.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/Conn.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/Err.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/MainContext.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/Version.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/X509.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Net/SSL.pm
 
 %files doc
 %defattr(-,root,root,-)
 %doc /usr/share/man/man3/*
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/auto/Crypt/SSLeay/SSLeay.so

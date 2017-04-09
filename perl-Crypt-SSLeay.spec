@@ -4,7 +4,7 @@
 #
 Name     : perl-Crypt-SSLeay
 Version  : 0.72
-Release  : 13
+Release  : 14
 URL      : http://www.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Source0  : http://www.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Summary  : 'OpenSSL support for LWP'
@@ -43,6 +43,7 @@ lib components for the perl-Crypt-SSLeay package.
 %setup -q -n Crypt-SSLeay-0.72
 
 %build
+export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make V=1  %{?_smp_mflags}
@@ -52,6 +53,7 @@ else
 fi
 
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost
@@ -71,14 +73,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/CTX.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/Conn.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/Err.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/MainContext.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/Version.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Crypt/SSLeay/X509.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/Net/SSL.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Net/SSL.pm
 
 %files doc
 %defattr(-,root,root,-)
@@ -86,4 +88,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux/auto/Crypt/SSLeay/SSLeay.so
+/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so

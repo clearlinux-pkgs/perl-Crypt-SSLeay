@@ -4,7 +4,7 @@
 #
 Name     : perl-Crypt-SSLeay
 Version  : 0.72
-Release  : 17
+Release  : 18
 URL      : http://www.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Source0  : http://www.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Summary  : 'OpenSSL support for LWP'
@@ -13,10 +13,12 @@ License  : Artistic-2.0
 Requires: perl-Crypt-SSLeay-lib
 Requires: perl-Crypt-SSLeay-doc
 BuildRequires : openssl-dev
+BuildRequires : perl(IO::Interactive::Tiny)
 BuildRequires : perl(LWP::Protocol::https)
 BuildRequires : perl(Path::Class)
 BuildRequires : perl(Try::Tiny)
 BuildRequires : zlib-dev
+Patch1: build.patch
 
 %description
 # Crypt::SSLeay - OpenSSL support for LWP
@@ -41,8 +43,12 @@ lib components for the perl-Crypt-SSLeay package.
 
 %prep
 %setup -q -n Crypt-SSLeay-0.72
+%patch1 -p1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
@@ -56,7 +62,7 @@ fi
 export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 make TEST_VERBOSE=1 test
 
 %install
@@ -73,14 +79,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/Net/SSL.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/Crypt/SSLeay.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/Net/SSL.pm
 
 %files doc
 %defattr(-,root,root,-)
@@ -88,4 +94,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.24.0/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so
+/usr/lib/perl5/site_perl/5.26.0/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so

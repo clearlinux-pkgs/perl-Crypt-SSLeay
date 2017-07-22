@@ -1,0 +1,11 @@
+--- Crypt-SSLeay-0.72/Makefile.PL~	2014-04-24 14:50:29.000000000 +0000
++++ Crypt-SSLeay-0.72/Makefile.PL	2017-07-22 18:25:40.300969039 +0000
+@@ -8,7 +8,7 @@
+ use Path::Class;
+ use Try::Tiny;
+ 
+-use inc::IO::Interactive::Tiny;
++use IO::Interactive::Tiny;
+ 
+ caller
+     or run(\@ARGV, [qw{ssl crypto ssl32 ssleay32 eay32 libeay32 z}]);

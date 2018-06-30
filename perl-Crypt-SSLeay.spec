@@ -4,14 +4,14 @@
 #
 Name     : perl-Crypt-SSLeay
 Version  : 0.72
-Release  : 21
-URL      : http://www.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
-Source0  : http://www.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
+Release  : 22
+URL      : https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Summary  : 'OpenSSL support for LWP'
 Group    : Development/Tools
 License  : Artistic-2.0
 Requires: perl-Crypt-SSLeay-lib
-Requires: perl-Crypt-SSLeay-doc
+Requires: perl-Crypt-SSLeay-man
 BuildRequires : openssl-dev
 BuildRequires : perl(IO::Interactive::Tiny)
 BuildRequires : perl(LWP::Protocol::https)
@@ -25,20 +25,20 @@ Patch1: build.patch
 ## Do you need Crypt::SSLeay?
 Since version 6.02, [LWP](https://metacpan.org/pod/LWP) depends on [LWP::Protocol::https](https://metacpan.org/pod/LWP::Protocol::https) which pulls in [IO::Socket::SSL](https://metacpan.org/pod/IO::Socket::SSL) which is then automatically used by [LWP::UserAgent](https://metacpan.org/pod/LWP::UserAgent) unless you explicitly override it. So, you might no longer need `Crypt::SSLeay`. `IO::Socket::SSL` is preferable anyway because it allows hostname verification which `Crypt::SSLeay` does not support.
 
-%package doc
-Summary: doc components for the perl-Crypt-SSLeay package.
-Group: Documentation
-
-%description doc
-doc components for the perl-Crypt-SSLeay package.
-
-
 %package lib
 Summary: lib components for the perl-Crypt-SSLeay package.
 Group: Libraries
 
 %description lib
 lib components for the perl-Crypt-SSLeay package.
+
+
+%package man
+Summary: man components for the perl-Crypt-SSLeay package.
+Group: Default
+
+%description man
+man components for the perl-Crypt-SSLeay package.
 
 
 %prep
@@ -52,7 +52,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 else
 %{__perl} Build.PL
 ./Build
@@ -88,10 +88,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
 /usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/Net/SSL.pm
 
-%files doc
-%defattr(-,root,root,-)
-%doc /usr/share/man/man3/*
-
 %files lib
 %defattr(-,root,root,-)
 /usr/lib/perl5/site_perl/5.26.1/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so
+
+%files man
+%defattr(-,root,root,-)
+/usr/share/man/man3/Crypt::SSLeay.3
+/usr/share/man/man3/Crypt::SSLeay::Version.3
+/usr/share/man/man3/Net::SSL.3

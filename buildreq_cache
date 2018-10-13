@@ -1,0 +1,7 @@
+0.72
+openssl-dev
+perl(IO::Interactive::Tiny)
+perl(LWP::Protocol::https)
+perl(Path::Class)
+perl(Try::Tiny)
+zlib-dev

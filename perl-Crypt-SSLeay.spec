@@ -4,7 +4,7 @@
 #
 Name     : perl-Crypt-SSLeay
 Version  : 0.72
-Release  : 25
+Release  : 26
 URL      : https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Summary  : 'OpenSSL support for LWP'

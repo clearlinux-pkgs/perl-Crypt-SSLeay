@@ -83,14 +83,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Crypt/SSLeay.pm
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/Net/SSL.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Crypt/SSLeay.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/Net/SSL.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -100,4 +100,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.0/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so
+/usr/lib/perl5/vendor_perl/5.28.1x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so

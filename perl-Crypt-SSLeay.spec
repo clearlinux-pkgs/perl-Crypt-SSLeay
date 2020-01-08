@@ -4,13 +4,13 @@
 #
 Name     : perl-Crypt-SSLeay
 Version  : 0.72
-Release  : 34
+Release  : 35
 URL      : https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Summary  : 'OpenSSL support for LWP'
 Group    : Development/Tools
 License  : Artistic-2.0
-Requires: perl-Crypt-SSLeay-lib = %{version}-%{release}
+Requires: perl-Crypt-SSLeay-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : openssl-dev
 BuildRequires : perl(IO::Interactive::Tiny)
@@ -29,23 +29,25 @@ Since version 6.02, [LWP](https://metacpan.org/pod/LWP) depends on [LWP::Protoco
 %package dev
 Summary: dev components for the perl-Crypt-SSLeay package.
 Group: Development
-Requires: perl-Crypt-SSLeay-lib = %{version}-%{release}
 Provides: perl-Crypt-SSLeay-devel = %{version}-%{release}
+Requires: perl-Crypt-SSLeay = %{version}-%{release}
 
 %description dev
 dev components for the perl-Crypt-SSLeay package.
 
 
-%package lib
-Summary: lib components for the perl-Crypt-SSLeay package.
-Group: Libraries
+%package perl
+Summary: perl components for the perl-Crypt-SSLeay package.
+Group: Default
+Requires: perl-Crypt-SSLeay = %{version}-%{release}
 
-%description lib
-lib components for the perl-Crypt-SSLeay package.
+%description perl
+perl components for the perl-Crypt-SSLeay package.
 
 
 %prep
 %setup -q -n Crypt-SSLeay-0.72
+cd %{_builddir}/Crypt-SSLeay-0.72
 %patch1 -p1
 %patch2 -p1
 
@@ -53,7 +55,7 @@ lib components for the perl-Crypt-SSLeay package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -63,7 +65,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -83,14 +85,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Crypt/SSLeay.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Net/SSL.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -98,6 +92,14 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/Crypt::SSLeay::Version.3
 /usr/share/man/man3/Net::SSL.3
 
-%files lib
+%files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/SSLeay.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Net/SSL.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so

@@ -4,7 +4,7 @@
 #
 Name     : perl-Crypt-SSLeay
 Version  : 0.72
-Release  : 37
+Release  : 38
 URL      : https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz
 Summary  : 'OpenSSL support for LWP'
@@ -94,12 +94,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Crypt/SSLeay.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/Net/SSL.pm
-/usr/lib/perl5/vendor_perl/5.30.3/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/SSLeay.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/SSLeay/CTX.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/SSLeay/Conn.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/SSLeay/Err.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/SSLeay/MainContext.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/SSLeay/Version.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Crypt/SSLeay/X509.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/Net/SSL.pm
+/usr/lib/perl5/vendor_perl/5.32.1/x86_64-linux-thread-multi/auto/Crypt/SSLeay/SSLeay.so
